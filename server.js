@@ -16,8 +16,10 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true
 });
 
-const UserRoutes = require('./routes/user');
+const userRoute = require('./routes/user');
+const authRoute = require('./routes/auth');
 
-app.use(UserRoutes);
+app.use('/api', userRoute);
+app.use('/api/user', authRoute);
 
 app.listen(port);
