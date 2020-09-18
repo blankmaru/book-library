@@ -21,4 +21,10 @@ router.post('/add', auth, (req, res) => {
         .catch(err => res.status(400).send({ error: err }));
 });
 
+router.post('/bookInfo/:id', auth, (req, res) => {
+    Book.findById(req.params.id).then(book => {
+        res.send(book);
+    }).catch(err => res.status(400).send({ error: err }));
+});
+
 module.exports = router;
