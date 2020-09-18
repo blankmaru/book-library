@@ -22,7 +22,11 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         minLength: 7
-    }
+    },
+    favoriteBooks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Book'
+    }]
 })
 
 const User = mongoose.model('User', userSchema)
