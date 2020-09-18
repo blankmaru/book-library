@@ -18,8 +18,10 @@ mongoose.connect(process.env.MONGO_URI, {
 
 const userRoute = require('./routes/user');
 const authRoute = require('./routes/auth');
+const bookRoute = require('./routes/book');
 
 app.use('/api', userRoute);
 app.use('/api/user', authRoute);
+app.use('/api/books', bookRoute);
 
 app.listen(port);
