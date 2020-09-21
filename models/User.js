@@ -26,6 +26,9 @@ const userSchema = mongoose.Schema({
     favoriteBooks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Book'
+    }],
+    roles: [{
+        type: String
     }]
 })
 

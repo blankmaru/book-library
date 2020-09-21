@@ -54,7 +54,9 @@ router.post('/login', async (req, res) => {
         accessToken: token,
         id: user._id,
         username: user.name,
-        email: user.email
+        email: user.email,
+        roles: user.roles,
+        favoriteBooks: user.favoriteBooks
     });
 });
 
