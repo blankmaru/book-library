@@ -15,7 +15,9 @@ router.post('/add', auth, (req, res) => {
         title: req.body.title,
         desc: req.body.desc,
         author: req.body.author,
-        postedBy: req.body.postedBy
+        postedBy: req.body.postedBy,
+        timesReaded: req.body.timesReaded,
+        category: req.body.category
     });
 
     newBook.save()
@@ -47,6 +49,13 @@ router.post('/update/:id', auth, (req, res) => {
             .then(() => res.send('Updated successfully'))
             .catch(err => res.status(400).send({ error: err }));
     });
+});
+
+router.get('/category/romantic', (req, res) => {
+    Book.findOne({ 'category': 'Romantic' }).then(books => {
+        res.send({ books: [books] });
+    })
+    .catch(err => res.status(400).send({ error: err }));
 });
 
 module.exports = router;
