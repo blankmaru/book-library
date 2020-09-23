@@ -58,4 +58,41 @@ router.get('/category/romantic', (req, res) => {
     .catch(err => res.status(400).send({ error: err }));
 });
 
+router.get('/category/science', (req, res) => {
+    Book.findOne({ 'category': 'Science' }).then(books => {
+        res.send({ books: [books] });
+    })
+    .catch(err => res.status(400).send({ error: err }));
+});
+
+router.get('/category/classics', (req, res) => {
+    Book.findOne({ 'category': 'Classics' }).then(books => {
+        res.send({ books: [books] });
+    });
+});
+
+router.get('/category/drama', (req, res) => {
+    Book.findOne({ 'category': 'Drama' }).then(books => {
+        res.send({ books: [books] });
+    });
+});
+
+router.get('/category/horror', (req, res) => {
+    Book.findOne({ 'category': 'Horror' }).then(books => {
+        res.send({ books: [books] });
+    });
+});
+
+router.get('/category/detective', (req, res) => {
+    Book.findOne({ 'category': 'Detective' }).then(books => {
+        res.send({ books: [books] });
+    });
+});
+
+router.get('/category/psychology', (req, res) => {
+    Book.findOne({ 'category': 'Psychology' }).then(books => {
+        res.send({ books: [books] });
+    });
+});
+
 module.exports = router;
