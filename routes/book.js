@@ -16,7 +16,6 @@ router.post('/add', auth, (req, res) => {
         desc: req.body.desc,
         author: req.body.author,
         postedBy: req.body.postedBy,
-        timesReaded: req.body.timesReaded,
         category: req.body.category
     });
 
@@ -91,6 +90,12 @@ router.get('/category/detective', (req, res) => {
 
 router.get('/category/psychology', (req, res) => {
     Book.findOne({ 'category': 'Psychology' }).then(books => {
+        res.send({ books: [books] });
+    });
+});
+
+router.get('/category/fantasy', (req, res) => {
+    Book.findOne({ 'category': 'Fantasy' }).then(books => {
         res.send({ books: [books] });
     });
 });

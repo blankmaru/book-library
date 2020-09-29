@@ -19,9 +19,6 @@ const bookSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User' 
     },
-    timesReaded: {
-        type: Number
-    },
     category: {
         type: String,
         required: true
